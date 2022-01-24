@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<table class="table  table-bordered container">
+  <caption>List of users</caption>
+  <thead>
+    <tr>
+   
+      <th scope="col">Nom du produit</th>
+      <th scope="col">quantité</th>
+      <th scope="col">prix</th>
+      <th scope="col">Total</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+       <tbody>
+      {% for items in panier %}
+    <tr>
+        <td>{{items.produit.articleName}}</td>
+        <td>
+        <a href="{{path('lessquantite',{'id':items.produit.id})}}"><i class="bi bi-dash-square"></i></a>
+        {{items.quantite}}
+        <a href="{{path('addquantite',{'id':items.produit.id})}}"><i class="bi bi-plus-square"></i></a>
+        </td>
+        <td> {{items.produit.price}}</td>
+        <td>{{items.produit.price * items.quantite}}</td>
+        <td><a href="{{path('supprimer',{'id':items.produit.id})}}"><i class="bi bi-trash"></i></a></td>
+   
+    </tr>
+         {% endfor %}
+          </tbody>
+          <tfoot>
+            <tr>
+                <td colspan="3">Total :</td>
+                <td>{{prixPanier}}</td>
+            </tr>
+          
+          </tfoot>
+</table>
+{% endblock  %}

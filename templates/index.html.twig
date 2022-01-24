@@ -1,0 +1,202 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-touch="false" data-interval="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active  ">
+                <div class="container-fluid">
+                    <div class="row d-flex align-items-center border ">
+
+                        <div class="col-2 offset-1 ">
+                            <img class="" src="{{ asset('pictures/carrousel-1.png') }}" alt="...">
+                        </div>
+                        <div class="col-5 ">
+                            <h2 class=" text-center title-carrousel">Big Sale Offer</h2>
+                            <div class="d-flex justify-content-center">
+                                <button class="buy-now text-white border-none pl-5 pr-5 pt-3 pb-3">buy Now</button>
+                                <button class="contact-us text-white border-none ml-3 pl-5 pr-5 pt-3 pb-3">Contact Us
+                                </button>
+                            </div>
+
+
+                        </div>
+                        <div class="col-1">
+                            <img src="{{ asset('pictures/carrousel-2.png') }}" alt="...">
+
+                        </div>
+                        <div class="col-1 ">
+                            <img src="{{ asset('pictures/carrousel-3.png') }}" alt="...">
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="container-fluid">
+                    <div class="row d-flex align-items-center border ">
+
+                        <div class="col-2 offset-1 ">
+                            <img class="" src="{{ asset('pictures/carrousel-1.png') }}" alt="...">
+                        </div>
+                        <div class="col-5 ">
+                            <h2 class=" text-center title-carrousel">Big Sale Offer</h2>
+                            <div class="d-flex justify-content-center">
+                                <button class="buy-now text-white border-none pl-5 pr-5 pt-3 pb-3">buy Now</button>
+                                <button class="contact-us text-white border-none ml-3 pl-5 pr-5 pt-3 pb-3">Contact Us
+                                </button>
+                            </div>
+
+
+                        </div>
+                        <div class="col-1">
+                            <img src="{{ asset('pictures/carrousel-2.png') }}" alt="...">
+
+                        </div>
+                        <div class="col-1 ">
+                            <img src="{{ asset('pictures/carrousel-3.png') }}" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container-fluid">
+                    <div class="row d-flex align-items-center border ">
+
+                        <div class="col-2 offset-1 ">
+                            <img class="" src="{{ asset('pictures/carrousel-1.png') }}" alt="...">
+                        </div>
+                        <div class="col-5 ">
+                            <h2 class=" text-center title-carrousel">Big Sale Offer</h2>
+                            <div class="d-flex justify-content-center">
+                                <button class="buy-now text-white border-none pl-5 pr-5 pt-3 pb-3">buy Now</button>
+                                <button class="contact-us text-white border-none ml-3 pl-5 pr-5 pt-3 pb-3">Contact Us
+                                </button>
+                            </div>
+
+
+                        </div>
+                        <div class="col-1">
+                            <img src="{{ asset('pictures/carrousel-2.png') }}" alt="...">
+
+                        </div>
+                        <div class="col-1 ">
+                            <img src="{{ asset('pictures/carrousel-3.png') }}" alt="...">
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-target="#carouselExampleControlsNoTouching"
+                    data-slide="prev">
+                <img src="{{ 'icones/left-arrow.png' }}" alt="" srcset="">
+            </button>
+            <button class="carousel-control-next" type="button" data-target="#carouselExampleControlsNoTouching"
+                    data-slide="next">
+                <img src="{{ 'icones/right-arrow.png' }}" alt="" srcset="">
+            </button>
+        </div>
+    </div>
+    <section class="container-fluid category">
+        <div class="row   h-100">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <h2 class="title-category mr-5">Category</h2>
+                <p class="mr-5 pt-3 filter cursor-pointer" data-category="man-fashion">Man's Fashions</p>
+                <p class="mr-5 pt-3 filter cursor-pointer" data-category="woman-fashion">Woman Fashion</p>
+                <p class="mr-5 pt-3 filter cursor-pointer" data-category="beauty">Beauty</p>
+                <p class="mr-5 pt-3 filter cursor-pointer" data-category="mobile">Mobiles</p>
+                <p class="mr-5 pt-3 filter cursor-pointer" data-category="computers">Computers</p>
+                <p class="mr-5 pt-3 filter cursor-pointer" data-category="watchs">Watchs</p>
+                <p class="mr-5 pt-3 filter cursor-pointer" data-category="kitchen">Kitchen</p>
+                <p class="mr-5 pt-3 filter cursor-pointer" data-category="sports">Sports</p>
+                <p class="mr-5 pt-3 filter cursor-pointer" data-category="camera">camera</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="articles container-fluid">
+        <div class="row">
+            {% for article in articles %}
+
+
+                <div class="col-4  border pb-5  prod" data-product="{{ article.category.categoryName }}">
+                    <h3 class="text-center text-uppercase mt-5 ">{{ article.category.categoryName }}</h3>
+
+                    <p class="text-center  image-resize mt-3"><img class="img-fluid"
+                                                                   src="{{ asset("product/" ~ article.pictureArticle) }}"
+                                                                   alt=""></p>
+
+                    <a href='{{ path('addpanier',{'id':article.id}) }}'><button class="add-cart pt-3 ml-5 pb-3 pl-5 pr-5 mr-5 ajouter-panier"
+                            data-image="{{ asset("product/" ~ article.pictureArticle) }}"
+                            data-price="{{ article.price }}">Add to
+                            Cart</button></a>
+                    <span class="mr-3 text-uppercase">{{ article.brand }}</span>
+                    <span>${{ article.price }}</span>
+
+
+                </div>
+
+            {% endfor %}
+
+
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center mt-5 text-uppercase">Computers & Laptop</h3>
+            </div>
+            {% for computer in computers %}
+                <div class="col-4 mt-5">
+                    <p class="text-center image-resize  mt-3"><img class="img-fluid" height="334"
+                                                                   src="{{ asset("product/" ~ computer.pictureArticle) }}"
+                                                                   alt=""></p>
+                    <p class="text-center text-uppercase">{{ computer.category.categoryName }}</p>
+                    <div class="d-flex flex-column align-items-center">
+                        <div>
+                            <span>{{ computer.brand }}</span>
+                            <span>${{ computer.price }}</span>
+
+                        </div>
+                        <div class="mt-3">
+                            <a href='{{ path('addpanier',{'id':computer.id}) }}'>
+                                <button class="add-cart pt-3 ml-5 pb-3 pl-5 pr-5 mr-5 ajouter-panier">Add to Cart
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center mt-5">Man's clothes</h3>
+            </div>
+
+        </div>
+
+    </section>
+    <div class="container-fluid">
+
+        <div class="row  mt-5 border d-flex align-items-center">
+
+            <div class="col-4 offset-1    ">
+                <h2 class="title-clothes">Best Offer Every
+                    Man’s Iteams</h2>
+                <p>There are many variations of passages of Lorem Ipsum available,
+                    but the majority have</p>
+                <button class="add-cart pt-3 mt-3  pb-3 pl-5 pr-5 mr-5 ajouter-panier">Buy Now</button>
+
+            </div>
+            <div class="col-7 ">
+                <p class="d-flex align-items-end h-100 justify-content-end m-0"><img
+                            class="img-fluid  justify-content-end" src="{{ asset('product/clothes.png') }}"
+                            alt="picture of clothes"></p>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
