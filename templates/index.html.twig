@@ -10,7 +10,7 @@
                             <img class="" src="{{ asset('pictures/carrousel-1.png') }}" alt="...">
                         </div>
                         <div class="col-5 ">
-                            <h2 class=" text-center title-carrousel">Big Sale Offer</h2>
+                            <h2 class=" text-center title-carrousel text-break">Big Sale Offer</h2>
                             <div class="d-flex justify-content-center">
                                 <button class="buy-now text-white border-none pl-5 pr-5 pt-3 pb-3">buy Now</button>
                                 <button class="contact-us text-white border-none ml-3 pl-5 pr-5 pt-3 pb-3">Contact Us
@@ -172,7 +172,7 @@
 
         <div class="row">
             <div class="col-12">
-                <h3 class="text-center mt-5">Man's clothes</h3>
+                <h3 class="text-center text-uppercase mt-5">Man's clothes</h3>
             </div>
 
         </div>
@@ -198,5 +198,21 @@
 
         </div>
     </div>
-
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="text-center text-uppercase mt-5">woman’s clothes</h3>
+        </div>
+        <div class="col-5 d-flex justify-content-center flex-column mt-5">
+            <h2 class="text-break titre-woman-clothes text-uppercase">Get
+                offer Every
+                Iteams</h2>
+            <button class="add-cart pt-3 mt-5 pb-3 pl-5 pr-5 w-40  ajouter-panier">Add to Cart
+            </button>
+        </div>
+        <div class="col-6 mt-5 offset-1">
+            <p><img class="img-fluid" src="{{ asset('/product/woman-clothes.png') }}"></p>
+        </div>
+    </div>
+</div>
 {% endblock %}
