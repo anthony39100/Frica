@@ -108,3 +108,25 @@ a:visited{
 .w-40{
     width: 40%;
 }
+.footer{
+    background-color: #143a51;
+
+}
+.menu-footer>p,.useful>p{
+    padding-top: 0px;
+    font-family: "Poppins";
+
+    margin: 0 !important;
+}
+.title-footer{
+    font-size: 69px;
+}
+.font-footer{
+    font-size: 20px;
+}
+.max-width{
+    max-width: 195px;
+}
+.mw-footer{
+    max-width: 302px;
+}

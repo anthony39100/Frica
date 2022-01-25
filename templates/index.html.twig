@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-touch="false" data-interval="false">
+    <div id="carouselExampleControlsNoTouching" class="carousel slide d-none d-lg-block" data-touch="false" data-interval="false">
         <div class="carousel-inner">
             <div class="carousel-item active  ">
                 <div class="container-fluid">
@@ -120,17 +120,20 @@
             {% for article in articles %}
 
 
-                <div class="col-4  border pb-5  prod" data-product="{{ article.category.categoryName }}">
+                <div class=" border pb-5  prod col-12 col-lg-4" data-product="{{ article.category.categoryName }}">
                     <h3 class="text-center text-uppercase mt-5 ">{{ article.category.categoryName }}</h3>
 
                     <p class="text-center  image-resize mt-3"><img class="img-fluid"
                                                                    src="{{ asset("product/" ~ article.pictureArticle) }}"
                                                                    alt=""></p>
 
-                    <a href='{{ path('addpanier',{'id':article.id}) }}'><button class="add-cart pt-3 ml-5 pb-3 pl-5 pr-5 mr-5 ajouter-panier"
-                            data-image="{{ asset("product/" ~ article.pictureArticle) }}"
-                            data-price="{{ article.price }}">Add to
-                            Cart</button></a>
+                    <a href='{{ path('addpanier',{'id':article.id}) }}'>
+                        <button class="add-cart pt-3 ml-5 pb-3 pl-5 pr-5 mr-5 ajouter-panier"
+                                data-image="{{ asset("product/" ~ article.pictureArticle) }}"
+                                data-price="{{ article.price }}">Add to
+                            Cart
+                        </button>
+                    </a>
                     <span class="mr-3 text-uppercase">{{ article.brand }}</span>
                     <span>${{ article.price }}</span>
 
@@ -146,7 +149,7 @@
                 <h3 class="text-center mt-5 text-uppercase">Computers & Laptop</h3>
             </div>
             {% for computer in computers %}
-                <div class="col-4 mt-5">
+                <div class="col-12 col-lg-4  mt-5">
                     <p class="text-center image-resize  mt-3"><img class="img-fluid" height="334"
                                                                    src="{{ asset("product/" ~ computer.pictureArticle) }}"
                                                                    alt=""></p>
@@ -182,7 +185,7 @@
 
         <div class="row  mt-5 border d-flex align-items-center">
 
-            <div class="col-4 offset-1    ">
+            <div class="col-12 col-lg-4 offset-1    ">
                 <h2 class="title-clothes">Best Offer Every
                     Man’s Iteams</h2>
                 <p>There are many variations of passages of Lorem Ipsum available,
@@ -198,21 +201,85 @@
 
         </div>
     </div>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h3 class="text-center text-uppercase mt-5">woman’s clothes</h3>
-        </div>
-        <div class="col-5 d-flex justify-content-center flex-column mt-5">
-            <h2 class="text-break titre-woman-clothes text-uppercase">Get
-                offer Every
-                Iteams</h2>
-            <button class="add-cart pt-3 mt-5 pb-3 pl-5 pr-5 w-40  ajouter-panier">Add to Cart
-            </button>
-        </div>
-        <div class="col-6 mt-5 offset-1">
-            <p><img class="img-fluid" src="{{ asset('/product/woman-clothes.png') }}"></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center text-uppercase mt-5">woman’s clothes</h3>
+            </div>
+            <div class="col-lg-5 d-flex justify-content-center flex-column mt-5">
+                <h2 class="text-break titre-woman-clothes text-uppercase">Get
+                    offer Every
+                    Iteams</h2>
+                <button class="add-cart pt-3 mt-5 pb-3 pl-5 pr-5 w-40  ajouter-panier">Add to Cart
+                </button>
+            </div>
+            <div class="col-lg-6 mt-5 offset-lg-1">
+                <p><img class="img-fluid" src="{{ asset('/product/woman-clothes.png') }}"></p>
+            </div>
         </div>
     </div>
-</div>
+    <footer class="container-fluid mt-5 footer">
+        <div class="container h-100 ">
+            <div class="row   text-white align-items-center h-100 justify-content-between pt-5">
+                <div class="col-lg-2">
+                    <h3 class="text-uppercase title-footer">frica</h3>
+                </div>
+                <div class="col-lg-3 align-items-center  d-flex">
+                    <p><img class="mr-3" src="{{ asset('sociaux/facebook.png') }}"></p>
+                    <p><img class="mr-3" src="{{ asset('sociaux/twitter.png') }}"></p>
+                    <p><img class="mr-3" src="{{ asset('sociaux/linkedin.png') }}"></p>
+                    <p><img class="mr-3" src="{{ asset('sociaux/instragram.png') }}"></p>
+                    <p><img class="mr-3" src="{{ asset('sociaux/youtube.png') }}"></p>
+                </div>
+            </div>
+            <div class="row text-white no-gutters   mt-5 ">
+                <div class="col-lg-4 useful  ">
+                    <h3 class="font-footer" >About</h3>
+                    <p class="mw-footer">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation u</p>
+                </div>
+                <div class="col-lg-2 offset-lg-1 mt-5 mt-lg-0 menu-footer  useful">
+                    <h3 class="font-footer">Menus</h3>
+                    <p>Home</p>
+                    <p>About</p>
+                    <p>Services</p>
+                    <p>Pricing</p>
+                    <p>Contact us</p>
+                </div>
+                <div class="col-lg-2  mt-5 mt-lg-0 useful">
+                    <h3 class="font-footer">Useful Link</h3>
+                    <p>Adipiscing </p>
+                    <p>sed Elit, do</p>
+                    <p>Eiusmod</p>
+                    <p>Tempor </p>
+                    <p>cididunt</p>
+                </div>
+                <div class="col-lg -3  mt-5 mt-lg-0   ">
+                    <h3 class="font-footer">Contact Us</h3>
+                    <div class="d-flex useful ">
+                        <p class="mr-3"><img class="mr-3" src="{{ asset('icones/maps.png') }}" alt="" srcset=""></p>
+                        <p>No.123 Chalingt Gates, loram ipusm</p>
+
+                    </div>
+                    <div class="d-flex useful pt-2 ">
+                        <p ><img class="mr-3" src="{{ asset('icones/phone.png') }}" alt="" srcset=""></p>
+                        <p>+01 1234567890</p>
+
+                    </div>
+                    <div class="d-flex useful pt-2 ">
+                        <p class="mr-3 "><img class="mr-3" src="{{ asset('icones/envelope.png') }}" alt="" srcset=""></p>
+                        <p>demo@gmail.com</p>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="text-lg-center">Copyright 2020 All Right Reserved By Free html Templates</h3>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 {% endblock %}
