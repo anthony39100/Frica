@@ -105,7 +105,7 @@ a:visited{
     font-family: "Poppins";
     font-weight: bold;
 }
-.w-40{
+.w-lg-40{
     width: 40%;
 }
 .footer{
@@ -130,3 +130,33 @@ a:visited{
 .mw-footer{
     max-width: 302px;
 }
+
+
+@media (max-width: 575.98px) { 
+    .sm-w-100{
+        width:100%;
+    }.best-offer{
+         min-height: 594px;
+     }.menu-responsive{
+         height: 100vh;
+     }.order-sm-1{
+         order: 1;
+     }.order-sm-2{
+        order: 2;
+    }.order-sm-3{
+        order: 3;
+ }.titre-woman-clothes{
+    font-size: 45px;
+ }.title-clothes{
+     font-size: 45px;
+ }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { ... }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { ... }
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { ... }
