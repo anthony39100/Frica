@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class AjaxController extends AbstractController
+class PanierController extends AbstractController
 {
     /**
      * @Route("/panier/add/{id}", name="addpanier")
@@ -20,16 +20,23 @@ class AjaxController extends AbstractController
     public function index($id,SessionInterface $session): Response
     {
         $panier=$session->get('panier',[]);
+        //on recupere un panier vide 
         if(!empty($panier[$id])){
             $panier[$id]++;
+           
+            //si l'article avec l'id  n'est pas vide on ajoute des quantités
         }else{
             $panier[$id]=1;
+            //sinon on ajoute une quantité 
 
         }
+      
         $session->set('panier',$panier);
-  
-        return $this->redirectToRoute('home');
-       
+     
+   
+        //on enregistre nos articles avec leurs id 
+         return $this->redirectToRoute('home');
+        //on retourne dans la page home
    
     }
 
@@ -77,5 +84,25 @@ class AjaxController extends AbstractController
         }
         $session->set('panier',$panier);
         return $this->redirectToRoute('panier');
+    }
+     /**
+     * @Route("/panier/", name="panier")
+     */
+    public function Panier(ArticlesRepository $article,SessionInterface $session, PanierService $service)
+    {
+        $panier=$service->getPanier();
+
+        $totales=$service->calculerPrixPanier($panier);
+        $notifications=$service->getNotifications($panier);
+
+
+
+        return $this->render('panier.html.twig',
+            [
+                'panier'=>$panier,
+                'prixPanier'=>$totales,
+                'notifications'=>$notifications
+            ]
+        );
     }
 }

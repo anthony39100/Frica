@@ -18,7 +18,9 @@ class HomeController extends AbstractController
     {   
         $computers = $article->findbyComputer("computers",'laptop','macOs');
 
-        $panier = $panierService->getPanier();
+            $panier = $panierService->getPanier();
+
+        
         $notifications=$panierService->getNotifications($panier);
 
         $prixPanier = $panierService->calculerPrixPanier($panier);
@@ -31,26 +33,7 @@ class HomeController extends AbstractController
             'notifications'=>$notifications
         ]);
     }
-    /**
-     * @Route("/panier/", name="panier")
-     */
-    public function Panier(ArticlesRepository $article,SessionInterface $session, PanierService $service)
-    {
-        $panier=$service->getPanier();
-
-        $totales=$service->calculerPrixPanier($panier);
-        $notifications=$service->getNotifications($panier);
-
-
-
-        return $this->render('panier.html.twig',
-            [
-                'panier'=>$panier,
-                'prixPanier'=>$totales,
-                'notifications'=>$notifications
-            ]
-        );
-    }
+   
  
     
 }

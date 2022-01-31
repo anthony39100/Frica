@@ -18,17 +18,21 @@ class PanierService {
     public function getPanier(): array
     {
         $panier = $this->session->get('panier',[]);
+      //on recupere notre panier dans notre session
         $panierCurrentArticle=[];
-        foreach($panier as $articleId => $quantite){
-
+        //on creer un tableau vide
+        foreach($panier as $id => $quantite){
+            //on parcoure la session panier 
             $panierCurrentArticle[]=[
-                'produit'=>$this->article->find($articleId),
+                'produit'=>$this->article->find($id),
                 'quantite'=>$quantite
             ];
+            
         }
-        $panier = $panierCurrentArticle;
+       
+       $panierCurrentArticle;
 
-        return $panier;
+        return $panierCurrentArticle;
     }
 
     /**
